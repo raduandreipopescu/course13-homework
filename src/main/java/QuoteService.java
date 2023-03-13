@@ -1,13 +1,17 @@
-import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@AllArgsConstructor
+@Data
 public class QuoteService {
 
-    private List<Quote> quotes;
+    private List<Quote> quotes = new ArrayList<>();
+
+    public QuoteService(List<Quote> quotes) {
+        this.quotes.addAll(quotes);
+    }
 
     public List<String> getAllQuotes() {
         List<String> results = new ArrayList<>();
@@ -54,6 +58,6 @@ public class QuoteService {
 
     public String getRandomQuote() {
         Random randomNumber = new Random();
-        return quotes.get(randomNumber.nextInt(0, quotes.size()-1)).getQuote();
+        return quotes.get(randomNumber.nextInt(0, quotes.size() - 1)).getQuote();
     }
 }

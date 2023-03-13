@@ -1,12 +1,11 @@
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         FileReader fileReader = new FileReader("src/main/resources/quotes.txt");
-        List<Quote> quotes = new ArrayList<>();
+        List<Quote> quotes;
 
         try {
             quotes = fileReader.readLinesFromFile();
